@@ -229,14 +229,14 @@
         console.error(error);
       }
 
-      vm.setTurboMode(false);
+      vm.setTurboMode(true);
       if (vm.setInterpolation) vm.setInterpolation(false);
-      if (vm.setFramerate) vm.setFramerate(60);
-      if (vm.renderer.setUseHighQualityRender) vm.renderer.setUseHighQualityRender(false);
+      if (vm.setFramerate) vm.setFramerate(120);
+      if (vm.renderer.setUseHighQualityRender) vm.renderer.setUseHighQualityRender(true);
       if (vm.setRuntimeOptions) vm.setRuntimeOptions({
-        fencing: true,
+        fencing: false,
         miscLimits: true,
-        maxClones: 300,
+        maxClones: 9999999999,
       });
       if (vm.setCompilerOptions) vm.setCompilerOptions({
         enabled: true,
@@ -245,7 +245,7 @@
       if (vm.renderer.setMaxTextureDimension) vm.renderer.setMaxTextureDimension(2048);
 
       if (typeof ScaffoldingAddons !== 'undefined') {
-        ScaffoldingAddons.run(scaffolding, {"gamepad":false,"pointerlock":false,"specialCloudBehaviors":false,"unsafeCloudBehaviors":false,"pause":false});
+        ScaffoldingAddons.run(scaffolding, {"gamepad":false,"pointerlock":false,"specialCloudBehaviors":true,"unsafeCloudBehaviors":false,"pause":false});
       }
 
       scaffolding.setExtensionSecurityManager({
